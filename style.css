@@ -88,7 +88,7 @@ html, body{
 }
 
 .slide{
-  margin-left: 24px;
+  margin-left: 28px;
 }
 
 .luna,.sol {
@@ -196,3 +196,50 @@ html, body{
   margin-left: auto;
 }
 
+
+
+/*-------Media Queries ----------*/
+
+@media (max-width: 968px) {
+  .section{
+    width: 100%;
+    padding: 250px 50px;
+  }
+
+  .titulo-section{
+    font-size: 32px;
+  }
+
+  .titulo-section::first-letter {
+    color: #e24c33;
+    font-size: 40px;
+  }
+
+  .hero-principal{
+    text-align: center;
+    bottom: 100px;
+    left: 0;
+  }
+
+  .hero-principal-titulo {
+    font-size: 36px;
+  }
+
+  .hero-segundo{
+    top: calc(50% - 250px);
+    right: 0;
+  }
+
+  .hero-segundo-titulo {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    font-size: 30px;
+  }
+
+  .barra-tema {
+    transform: scale(85%);
+    right: 0;
+  }
+
+
+}

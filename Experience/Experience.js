@@ -8,6 +8,7 @@ import Assets from "./Utils/Assets.js";
 
 import Camera from "./Camera.js";
 import Renderer from "./Renderer.js";
+import Preloader from "./Preloader.js";
 
 import World from "./World/World.js";
 import Theme from "./World/Theme.js";
@@ -34,6 +35,7 @@ export default class Experience {
         
         
         this.world = new World();
+        this.preloader = new Preloader();
         
 
         //.on (que viene de EventEmitter es el que va a escuchar el evento al que llamamos "update" en Time.js

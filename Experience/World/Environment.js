@@ -13,6 +13,10 @@ export default class Environment {
         this.luna = document.querySelector(".luna");
         this.toggle = document.querySelector(".toggle-switch");
         this.boton = document.querySelector(".boton");
+        this.secciones = document.querySelectorAll(".section");
+        this.parrafoSection = document.querySelectorAll(".texto-section-wrapper p");
+
+        
 
         // this.gui = new GUI({container: document.querySelector(".hero-wrapper")});
         // this.obj = {
@@ -40,12 +44,13 @@ export default class Environment {
     setSunlight(){
         this.sunLight = new THREE.DirectionalLight("#FFFFFF", 3);
         this.sunLight.castShadow = true;
+        this.sunLight.shadow.camera.near = 0.5;
         this.sunLight.shadow.camera.far = 20;
         this.sunLight.shadow.mapSize.set(2048, 2048);
         this.sunLight.shadow.normalBias = 0.05;
         // const helper = new THREE.CameraHelper(this.sunLight.shadow.camera);
         // this.scene.add(helper);
-        this.sunLight.position.set(-1.5, 7, 2.5);
+        this.sunLight.position.set(-1.8, 6, 4);
 
         this.scene.add(this.sunLight);
 
@@ -76,6 +81,14 @@ export default class Environment {
             this.luna.style.filter = "invert(100%)";
             this.toggle.style.backgroundColor = "var(--color-principal-oscuro)";
             this.boton.style.backgroundColor = "var(--color-secundario-oscuro)";
+
+            this.secciones.forEach((seccion) => {
+                seccion.style.backgroundColor = "#152642";
+            })
+
+            this.parrafoSection.forEach((seccion) => {
+                seccion.style.borderBottom = "3px solid #e24c33";
+            })
         } else {
             GSAP.to(this.sunLight.color, {
                 r: 255/255,
@@ -98,6 +111,14 @@ export default class Environment {
             this.luna.style.filter = "invert(0%)";
             this.toggle.style.backgroundColor = "#2c83c6";
             this.boton.style.backgroundColor = "var(--color-secundario-claro)";
+
+            this.secciones.forEach((seccion) => {
+                seccion.style.backgroundColor = "var(--color-secundario-claro)";
+            });
+
+            this.parrafoSection.forEach((seccion) => {
+                seccion.style.borderBottom = "3px solid var(--color-principal-claro)";
+            });
         }
     }
 

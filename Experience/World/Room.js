@@ -2,6 +2,7 @@ import * as THREE from "three";
 import Experience from "../Experience.js";
 import GSAP from "gsap";
 import { RectAreaLightHelper } from '../../node_modules/three/examples/jsm/helpers/RectAreaLightHelper.js'
+
 export default class Room {
     constructor() {
         this.experience = new Experience();
@@ -10,21 +11,7 @@ export default class Room {
         this.time = this.experience.time;
         this.room = this.resources.items.cuarto;
         this.actualRoom = this.room.scene;
-
-        const width = 0.3;
-        const height = 0.3;
-        const intensity = 10;
-        const rectLight = new THREE.RectAreaLight(0xffffff, intensity, width, height);
-        rectLight.position.set(
-            -1.3131605386734009,
-            1.042000,
-            -0.3499027490615845);
-
-        rectLight.rotation.x = (Math.PI*(-120))/180;
-        this.actualRoom.add(rectLight)
-
-        // const rectLightHelper = new RectAreaLightHelper(rectLight);
-        // rectLight.add(rectLightHelper);
+        this.roomChildren = {};
 
         this.lerp = {
             current: 0,
@@ -49,34 +36,69 @@ export default class Room {
                 child.children.forEach(groupchild => {
                     groupchild.castShadow = true;
                     groupchild.receiveShadow = true;
-
                 })
             }
 
+            if (child.isRectAreaLight) {
+                child.castShadow = false;
+                child.receiveShadow = false;
+            }
 
-            if (child.name === "PantallaTV") {
-                child.material = new THREE.MeshBasicMaterial({
+            if (child.name === "TV") {
+                child.children[3].material = new THREE.MeshBasicMaterial({
                     map: this.resources.items.zelda,
                 });
-
-
             }
 
             if (child.name === "PantallaPC") {
-                child.material = new THREE.MeshBasicMaterial({
+                child.children[0].material = new THREE.MeshBasicMaterial({
                     map: this.resources.items.pantalla,
                 });
 
             }
 
+            // child.scale.set(0, 0, 0);
+
+            if(child.name === "Diagonal" ||
+            child.name === "Punto" ||
+            child.name === "Recto"){
+                child.scale.set(0, 0, 0);
+                child.position.set(0,-0.5, 1);
+            }
+
+            this.roomChildren[child.name.toLowerCase()] = child;
 
 
+        });
 
-        })
+        const width = 0.3;
+        const height = 0.3;
+        const intensity = 10;
+        const rectLight = new THREE.RectAreaLight(0xffffff, intensity, width, height);
+        rectLight.position.set(
+            -1.3131605386734009,
+            1.062000,
+            -0.3499027490615845);
+
+        rectLight.rotation.x = (Math.PI*(-120))/180;
+        rectLight.rotation.y = (Math.PI*(5))/180;
+        rectLight.castShadow = false;
+        rectLight.receiveShadow = false;
+        console.log(rectLight);
+        this.actualRoom.add(rectLight);
+
+        this.roomChildren['rectLight'] = rectLight;
+
+        // const rectLightHelper = new RectAreaLightHelper(rectLight);
+        // rectLight.add(rectLightHelper);
+
         this.scene.add(this.actualRoom);
-        // this.actualRoom.scale.set(2,2,2);
+        //this.actualRoom.scale.set(0.11,0.11,0.11);
         // this.actualRoom.rotation.y = Math.PI/2;
+
+        
     }
+    
 
     setAnimation() { }
 
