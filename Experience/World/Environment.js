@@ -15,8 +15,8 @@ export default class Environment {
         this.boton = document.querySelector(".boton");
         this.secciones = document.querySelectorAll(".section");
         this.parrafoSection = document.querySelectorAll(".texto-section-wrapper p");
-
-        
+        this.tituloProyecto = document.querySelectorAll(".titulo-proyecto a");
+        this.links = document.querySelectorAll("nav a");
 
         // this.gui = new GUI({container: document.querySelector(".hero-wrapper")});
         // this.obj = {
@@ -84,11 +84,21 @@ export default class Environment {
 
             this.secciones.forEach((seccion) => {
                 seccion.style.backgroundColor = "#152642";
-            })
+            });
 
             this.parrafoSection.forEach((seccion) => {
                 seccion.style.borderBottom = "3px solid #e24c33";
-            })
+            });
+
+            
+            this.tituloProyecto.forEach((titulo) => {
+                titulo.style.color = "var(--texto-oscuro)";
+            });
+
+            this.links.forEach((link) => {
+                link.style.color = "var(--texto-oscuro)";
+            });
+
         } else {
             GSAP.to(this.sunLight.color, {
                 r: 255/255,
@@ -118,6 +128,14 @@ export default class Environment {
 
             this.parrafoSection.forEach((seccion) => {
                 seccion.style.borderBottom = "3px solid var(--color-principal-claro)";
+            });
+
+            this.tituloProyecto.forEach((titulo) => {
+                titulo.style.color = "var(--texto-claro)";
+            });
+
+            this.links.forEach((link) => {
+                link.style.color = "var(--texto-claro)";
             });
         }
     }

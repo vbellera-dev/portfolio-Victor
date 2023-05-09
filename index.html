@@ -19,8 +19,6 @@
       <h1>PORTFOLIO</h1>
     </div> -->
 
-    <div class="div" hidden>Inspirado por: Boko</div>
-
   <div class="experience">
     <!-- El elemento canvas es el que contiene todo lo relacionado con Three.js -->
     <canvas class="experience-canvas"></canvas>
@@ -29,6 +27,14 @@
   <!-- Esto es para implementar el smooth scrolling -->
   <!-- Page se mantendria estatica, mientras todo el contenido se movera -->
   <div class="page" asscroll-container>
+
+    <nav>
+      <a href="#hero" id="hero">Home</a>
+      <a href="#aboutMe">About Me</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#skills">Skills</a>
+      <a href="#contactMe">Contact Me</a>
+    </nav>
 
     <div class="barra-tema">
       <div class="sol">
@@ -66,8 +72,8 @@
 
       <div class="primer-espacio espacio-section"></div>
 
-      <section class="primer-section section izquierda">
-        <h1 class="titulo-section">About Me</h1>
+      <section class="primer-section section izquierda" id="aboutMe">
+        <h1 class="titulo-section" >About Me</h1>
 
         <div class="texto-section-wrapper">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda sapiente repellendus porro
@@ -88,30 +94,55 @@
 
       <div class="segundo-espacio espacio-section"></div>
 
-      <section class="segundo-section section derecha">
+      <section class="segundo-section section derecha" id="portfolio">
         <h1 class="titulo-section">Portfolio</h1>
 
-        <div class="texto-section-wrapper">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda sapiente repellendus porro
-            iste earum consequuntur aut magnam ratione dolorum suscipit aperiam, soluta quia consectetur et quidem quas
-            impedit laborum.</p>
+        <div class="texto-section-wrapper proyectos">
+          <!-- Primer Proyecto -->
+          <div class="proyecto">
+            <a href="www.youtube.com">
+              <img src="/images/youtube.jpg" alt="Clon de Youtube">
+            </a>
+          </div>
+          <div class="titulo-proyecto">
+            <a href="www.youtube.com">
+              <h3>Clon de Youtube</h3>
+            </a>
+          </div>
 
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda sapiente repellendus porro
-            iste earum consequuntur aut magnam ratione dolorum suscipit aperiam, soluta quia consectetur et quidem quas
-            impedit laborum.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda sapiente repellendus porro
-            iste earum consequuntur aut magnam ratione dolorum suscipit aperiam, soluta quia consectetur et quidem quas
-            impedit laborum.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda sapiente repellendus porro
-            iste earum consequuntur aut magnam ratione dolorum suscipit aperiam, soluta quia consectetur et quidem quas
-            impedit laborum.</p>
+          <!-- Segundo Proyecto -->
+          <div class="proyecto">
+            <a href="www.youtube.com">
+              <img src="/images/netflix.png" alt="Clon de Netflix">
+            </a>
+          </div>
+          <div class="titulo-proyecto">
+            <a href="www.youtube.com">
+              <h3>Clon de Netflix</h3>
+            </a>
+          </div>
+
+          <!-- Tercer Proyecto -->
+          <div class="proyecto">
+            <a href="www.youtube.com">
+              <img src="/images/portfolio.png" alt="Portafolio en Three.js">
+            </a>
+          </div>
+          <div class="titulo-proyecto">
+            <a href="www.youtube.com">
+              <h3>Portafolio en Three.js</h3>
+            </a>
+          </div>
+
+
+
         </div>
       </section>
 
       <div class="tercer-espacio espacio-section"></div>
 
-      <section class="tercer-section section izquierda">
-        <h1 class="titulo-section">Technologies</h1>
+      <section class="tercer-section section izquierda" id="skills">
+        <h1 class="titulo-section">Skills</h1>
 
         <div class="texto-section-wrapper">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda sapiente repellendus porro
@@ -128,7 +159,7 @@
 
       <div class="cuarto-espacio espacio-section"></div>
 
-      <section class="cuarto-section section derecha">
+      <section class="cuarto-section section derecha" id="contactMe">
         <h1 class="titulo-section">Contact Me</h1>
 
         <div class="texto-section-wrapper">
@@ -137,7 +168,7 @@
             impedit laborum.</p>
 
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda sapiente repellendus porro
-          
+
         </div>
       </section>
 
